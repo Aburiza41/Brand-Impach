@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'is_admin' => true,
+            'type' => 'Platform Digital',
         ]);
 
         \App\Models\User::factory(10)->create();

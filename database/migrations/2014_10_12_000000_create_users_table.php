@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             // Is Admin 
             $table->boolean('is_admin')->default(false);
+            // Type of user enum : Platform Digital, Platform Manual, Platform Semi Manual
+            $table->enum('type', ['Platform Digital', 'Platform Manual', 'Platform Semi Manual'])->default(null)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
