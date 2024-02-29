@@ -1,20 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        <div class="sm:px-4 lg:px-6">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+        </div>
     </x-slot>
 
     <!-- Head -->
     <x-slot name="head">
-        {{-- Flowbite --}}
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+        
     </x-slot>
 
     <!-- Foot -->
     <x-slot name="foot">
-        {{-- Flowbite --}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        
 
         {{-- Chart.js --}}
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -75,9 +75,9 @@
             });
         </script>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    
+    <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
+        <div class="w-full py-6 mx-auto sm:px-6 lg:px-8 shadow-sm">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 font-semibold text-xl text-gray-900 border-b-2">
                     {{ __("Tabel Data") }}
@@ -162,8 +162,8 @@
         </div>
     </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center mb-4 rounded bg-gray-50 dark:bg-gray-800">
+        <div class="w-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-5 ">
                 <div class="p-6 font-semibold text-xl text-gray-900 ">
                     {{ __("Chart Sumber") }}
