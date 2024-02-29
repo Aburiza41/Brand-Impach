@@ -25,7 +25,7 @@
                         } else {
                             // console.log('Email Not Exists');
                             const is_adminInput = document.getElementById('type');
-                            is_adminInput.value = '';
+                            is_adminInput.value = 'Tipe User Tidak Ditemukan';
                         }
                     } catch (error) {
                         console.error('Error:', error);
@@ -66,10 +66,11 @@
         {{-- Role --}}
         <div class="mt-4">
             <x-input-label for="type" :value="__('Role')" />
-            <select id="type" name="type" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            <select id="type" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 <option value="Platform Digital">Platform Digital</option>
                 <option value="Platform Manual">Platform Manual</option>
                 <option value="Platform Semi Manual">Platform Semi Manual</option>
+                <option value="Tipe User Tidak Ditemukan" hidden>Tipe User Tidak Ditemukan</option>
             </select>
             <x-input-error :messages="$errors->get('is_admin')" class="mt-2" />
         </div>
