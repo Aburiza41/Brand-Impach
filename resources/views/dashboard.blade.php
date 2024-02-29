@@ -31,7 +31,7 @@
             const pieData = @json($PieChartData);
 
             // Chart
-            const ctx = document.getElementById('myChart').getContext('2d');
+            const ctx = document.getElementById('myChartBar').getContext('2d');
             const myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -79,72 +79,72 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 border-b-2">
+                <div class="p-6 font-semibold text-xl text-gray-900 border-b-2">
                     {{ __("Tabel Data") }}
                 </div>
                 {{-- Table --}}
-                <div class="p-6">
+                <div class="p-6 sm:content">
                     <div class="relative overflow-x-auto">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3">
+                        <table class="table table-auto w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                            <thead class="table-header-group text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr class="table-row ">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         No
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Tanggal
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Nama
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Whatapps
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Kota
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Prov
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Sumber
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Nama Iklan
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 table-cell">
                                         Jam
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-row-group">
                                 @foreach ($data as $index => $item)
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr class="table-row bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white table-cell">
                                             {{ $index + 1 }}
                                         </th>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->created_at->format('d/m/Y') }}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            {{ $item->nama }}
+                                        <td class="px-6 py-4 table-cell">
+                                            {{ $item->name }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->whatapps }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->kota }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->prov }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->sumber }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->nama_iklan }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-6 py-4 table-cell">
                                             {{ $item->created_at->format('H:i') }}
                                         </td>
                                     </tr>
@@ -154,7 +154,10 @@
                     </div>
                 </div>
 
-
+                {{-- Pagination --}}
+                <div class="p-6">
+                    {{ $data->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -162,23 +165,32 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-5 ">
-                <div class="p-6 text-gray-900 ">
-                    {{ __("Chart") }}
+                <div class="p-6 font-semibold text-xl text-gray-900 ">
+                    {{ __("Chart Sumber") }}
                 </div>
             </div>
 
             {{-- Flex 3 Col --}}
-            <div class="grid grid-cols-3 gap-4">
-
+            <div class="grid lg:grid-cols-3 gap-4">
                 {{-- Card 1 --}}
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 border-b-2">
+                        <div class="text-gray-900">
+                            <h2 class="text-xl font-semibold">Bar Chart</h2>
+                        </div>
+                    </div>
                     <div class="p-6 text-gray-900">
-                        <canvas id="myChart" width="auto" height="auto"></canvas>
+                        <canvas id="myChartBar" width="auto" height="auto"></canvas>
                     </div>
                 </div>
 
                 {{-- Card 1 --}}
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 border-b-2">
+                        <div class="text-gray-900">
+                            <h2 class="text-xl font-semibold">Line Chart</h2>
+                        </div>
+                    </div>
                     <div class="p-6 text-gray-900">
                         <canvas id="myChartLine" width="auto" height="auto"></canvas>
                     </div>
@@ -186,6 +198,11 @@
 
                 {{-- Card 1 --}}
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 border-b-2">
+                        <div class="text-gray-900">
+                            <h2 class="text-xl font-semibold">Pie Chart</h2>
+                        </div>
+                    </div>
                     <div class="p-6 text-gray-900">
                         <canvas id="myChartPie" width="auto" height="auto"></canvas>
                     </div>

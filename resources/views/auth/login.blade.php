@@ -70,7 +70,7 @@
                 <option value="Platform Digital">Platform Digital</option>
                 <option value="Platform Manual">Platform Manual</option>
                 <option value="Platform Semi Manual">Platform Semi Manual</option>
-                <option value="Tipe User Tidak Ditemukan" hidden>Tipe User Tidak Ditemukan</option>
+                <option value="Tipe User Tidak Ditemukan" selected hidden>Tipe User Tidak Ditemukan</option>
             </select>
             <x-input-error :messages="$errors->get('is_admin')" class="mt-2" />
         </div>

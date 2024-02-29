@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     // Get Chart Data
-    $data = \App\Models\Chart::all();
+    $data = \App\Models\Chart::paginate(10);
     // Debgging
     // dd($data);   
 
@@ -89,7 +89,7 @@ Route::get('/dashboard', function () {
     ];
 
     // Alert
-    Alert::success('Selamat Datang', 'Anda Berhasil Login ' . Auth::user()->name);
+    // Alert::success('Selamat Datang', 'Anda Berhasil Login ' . Auth::user()->name);
 
     return view('dashboard', compact('data', 'BarChartData', 'LineChartData', 'PieChartData'));
 })->middleware(['auth', 'verified', Admin::class])->name('dashboard');
